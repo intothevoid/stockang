@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<div class="container">
+  <h3>My Portfolio</h3>
+  <hr>
+  <div class="stocks-div">
+    <div *ngFor="let stock of stocks">
+      <div class="stock-div" (click)="stockClicked(stock.symbol)">
+        <span class="symbol"> {{ stock.symbol }}</span>
+        <span class="company-name">({{ stock.name }})</span>
+      </div>
+    </div>
+  </div>
+  <div class="ticker-info-div">
+    <app-ticker-info
+      [tickerName] = "selectedStock"
+      *ngIf="selectedStock !== ''"></app-ticker-info>
+  </div>
+</div>
